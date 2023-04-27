@@ -1,4 +1,4 @@
 import Home from "./Home";
-import Tweet from "./Tweet";
+import Tweets from "./Tweet";
 
-export { Home, Tweet };
+export { Home, Tweets };

@@ -1,5 +1,5 @@
-const Tweet = () => {
-  return;
-};
+import UserCard from "../components/UserCard";
 
-export default Tweet;
+const Tweets = () => <UserCard />;
+
+export default Tweets;
