@@ -20,11 +20,10 @@ export const LogoWrapper = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  background-image: url(${bgImage});
-
-  width: 308px;
+  width: 100%;
   height: 168px;
-  position: absolute;
-  top: 28px;
-  left: 36px;
+
+  background-image: url(${bgImage});
+  background-repeat: no-repeat;
+  background-position: center;
 `;

@@ -1,3 +1,3 @@
-import UserInfo from "./UserInfo";
+import UserInfo from "./UserStatsInfo";
 
 export default UserInfo;

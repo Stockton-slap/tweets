@@ -1,4 +1,5 @@
-import UserInfo from "../UserInfo";
+import UserStatsInfo from "../UserInfo";
+import Avatar from "../Avatar/Avatar";
 
 import { CardContainer, LogoWrapper, BackgroundImage } from "./UserCard.styled";
 
@@ -11,7 +12,8 @@ const UserCard = () => {
         <Logo />
       </LogoWrapper>
       <BackgroundImage />
-      <UserInfo />
+      <Avatar />
+      <UserStatsInfo />
     </CardContainer>
   );
 };
