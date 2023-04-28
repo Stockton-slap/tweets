@@ -7,19 +7,21 @@ import {
 } from "./UserStatsInfo.styled";
 
 const UserStatsInfo = ({ tweets, followers }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isFollowed, setIsFollowed] = useState(false);
 
   const handleClick = () => {
-    setIsClicked(!isClicked);
+    setIsFollowed(!isFollowed);
   };
 
   return (
     <>
       <InfoContainer>
         <Tweets>{tweets} TWEETS</Tweets>
-        <Followers>{isClicked ? followers + 1 : followers} FOLLOWERS</Followers>
-        <Button type="button" isClicked={isClicked} onClick={handleClick}>
-          {isClicked ? "FOLLOWING" : "FOLLOW"}
+        <Followers>
+          {isFollowed ? followers + 1 : followers} FOLLOWERS
+        </Followers>
+        <Button type="button" isFollowed={isFollowed} onClick={handleClick}>
+          {isFollowed ? "FOLLOWING" : "FOLLOW"}
         </Button>
       </InfoContainer>
     </>

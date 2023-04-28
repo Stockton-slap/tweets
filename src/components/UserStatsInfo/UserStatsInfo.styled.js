@@ -25,7 +25,9 @@ export const Button = styled.button`
   border: none;
   border-radius: 10.31px;
 
-  background-color: ${({ isClicked }) => (isClicked ? "#5CD3A8" : "#EBD8FF")};
+  cursor: pointer;
+
+  background-color: ${({ isFollowed }) => (isFollowed ? "#5CD3A8" : "#EBD8FF")};
   color: #373737;
 
   box-shadow: 0px 3.44px #00000040;
