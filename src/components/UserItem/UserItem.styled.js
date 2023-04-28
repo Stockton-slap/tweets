@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import bgImage from "../../images/bg-image.png";
 
-export const CardContainer = styled.div`
+export const Card = styled.li`
   background-image: linear-gradient(#471ca9, #5736a3 69.1%, #4b2a99);
 
   width: 380px;
@@ -10,6 +10,8 @@ export const CardContainer = styled.div`
   position: relative;
 
   border-radius: 20px;
+
+  list-style: none;
 `;
 
 export const LogoWrapper = styled.div`

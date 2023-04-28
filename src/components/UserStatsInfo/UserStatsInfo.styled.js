@@ -18,12 +18,14 @@ export const Followers = styled.p`
 `;
 
 export const Button = styled.button`
-  padding: 14px 56px;
+  width: 196px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 
   border: none;
   border-radius: 10.31px;
 
-  background-color: #ebd8ff;
+  background-color: ${({ isClicked }) => (isClicked ? "#5CD3A8" : "#EBD8FF")};
   color: #373737;
 
   box-shadow: 0px 3.44px #00000040;

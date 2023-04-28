@@ -1,11 +1,9 @@
-import { Circle, Rectangle, Wrap, AvatarImage } from "./Avatar.styled";
+import { Circle, Rectangle } from "./Avatar.styled";
 
-const Avatar = () => {
+const Avatar = ({ name, avatar }) => {
   return (
     <Rectangle>
-      <Circle>
-        <AvatarImage />
-      </Circle>
+      <Circle avatar={avatar} />
     </Rectangle>
   );
 };
