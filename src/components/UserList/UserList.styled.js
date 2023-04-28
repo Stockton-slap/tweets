@@ -7,8 +7,10 @@ export const Container = styled.div`
 `;
 
 export const List = styled.ul`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
   align-items: center;
 `;
 
@@ -31,5 +33,5 @@ export const LoadMoreButton = styled.button`
   font-size: 18px;
   line-height: 1.22;
   // ---------------------
-  margin-top: 100px;
+  margin-top: 50px;
 `;

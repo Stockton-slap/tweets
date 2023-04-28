@@ -12,7 +12,11 @@ const UserList = () => {
   useEffect(() => {
     const getUsers = async () => {
       const results = await fetchUsers(page);
-      setUsers(results);
+
+      setUsers((prevUsers) => [
+        ...prevUsers,
+        ...results.map((result) => result),
+      ]);
     };
 
     getUsers();
