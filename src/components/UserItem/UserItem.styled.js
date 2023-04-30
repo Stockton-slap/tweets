@@ -29,3 +29,14 @@ export const BackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
+
+export const Rectangle = styled.div`
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+
+  background-color: #ebd8ff;
+  box-shadow: inset 0px 3.44px 2.58px #fbf8ff, 0px 3.44px 3.44px #0000000f,
+    inset 0px -1.72px 3.44px #ae7be3;
+`;

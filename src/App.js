@@ -1,14 +1,15 @@
 import "modern-normalize";
 import "../src/index.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Home, Tweets } from "./pages";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/tweets" element={<Tweets />}></Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/tweets" element={<Tweets />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

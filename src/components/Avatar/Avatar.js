@@ -1,10 +1,10 @@
-import { Circle, Rectangle } from "./Avatar.styled";
+import { Circle, CircleWrapper } from "./Avatar.styled";
 
 const Avatar = ({ name, avatar }) => {
   return (
-    <Rectangle>
+    <CircleWrapper>
       <Circle avatar={avatar} />
-    </Rectangle>
+    </CircleWrapper>
   );
 };
 

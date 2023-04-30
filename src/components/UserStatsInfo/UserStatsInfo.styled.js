@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "../../utils/reusableStyles";
 
 export const InfoContainer = styled.div`
   display: flex;
@@ -6,7 +7,10 @@ export const InfoContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-top: 62px;
+  position: absolute;
+  bottom: 36px;
+  margin: 0 auto;
+  width: 100%;
 `;
 
 export const Tweets = styled.p`
@@ -17,22 +21,6 @@ export const Followers = styled.p`
   margin-bottom: 26px;
 `;
 
-export const Button = styled.button`
-  width: 196px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-
-  border: none;
-  border-radius: 10.31px;
-
-  cursor: pointer;
-
+export const FollowButton = styled(Button)`
   background-color: ${({ isFollowed }) => (isFollowed ? "#5CD3A8" : "#EBD8FF")};
-  color: #373737;
-
-  box-shadow: 0px 3.44px #00000040;
-
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.22;
 `;
