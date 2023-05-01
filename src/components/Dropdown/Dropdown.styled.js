@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { Button } from "../../utils/reusableStyles";
+import arrowDown from "../../images/arrow.svg";
 
-export const DropdownSelect = styled(Button)``;
+export const DropdownSelect = styled(Button)`
+  background-image: url(${arrowDown});
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: right 15px center;
+`;
 
 export const SelectContainer = styled.div``;
 
@@ -23,11 +29,3 @@ export const SelectCategoriesItem = styled.li`
   opacity: 0.7;
   list-style: none;
 `;
-
-// background: url(${arrowDown}) right 15px center;
-//   background-color: ${(props) => props.theme.colors.whiteMuted};
-//   background-size: 7px;
-//   @media ${(props) => props.theme.device.tablet} {
-//     font-size: 14px;
-//     background-size: 10px;
-//   }
