@@ -6,16 +6,12 @@ import {
   FollowButton,
 } from "./UserStatsInfo.styled";
 
-import { addComma } from "../../utils/addComma";
-
 const UserStatsInfo = ({ tweets, followers, id }) => {
   const [isFollowed, setIsFollowed] = useState(
     localStorage.getItem("followersList")?.includes(id)
   );
 
   const actualFollowers = isFollowed ? followers + 1 : followers;
-
-  addComma(actualFollowers);
 
   const handleClick = () => {
     const followersList = localStorage.getItem("followersList")
@@ -38,7 +34,7 @@ const UserStatsInfo = ({ tweets, followers, id }) => {
     <>
       <InfoContainer>
         <Tweets>{tweets} TWEETS</Tweets>
-        <Followers>{actualFollowers} FOLLOWERS</Followers>
+        <Followers>{actualFollowers.toLocaleString()} FOLLOWERS</Followers>
         <FollowButton
           type="button"
           isFollowed={isFollowed}
