@@ -19,3 +19,8 @@ export const Button = styled.button`
   font-size: 18px;
   line-height: 1.22;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;

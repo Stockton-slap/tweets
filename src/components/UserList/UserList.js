@@ -1,19 +1,57 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import UserItem from "../UserItem/UserItem";
+import UserItem from "../UserItem";
+import Loader from "../Loader";
 
-import { BackButton, Container, List, LoadMoreButton } from "./UserList.styled";
+import {
+  BackButton,
+  Container,
+  List,
+  LoadMoreButton,
+  LoadMoreContainer,
+  TopButtonsContainer,
+} from "./UserList.styled";
 import { fetchUsers } from "../../services/fetchUsers";
 import { Link } from "react-router-dom";
+import Dropdown from "../Dropdown/Dropdown";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
+  const [isShowButton, setIsShowButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [type, setType] = useState("showAll");
+
+  const filteredUsers = useMemo(() => {
+    const followed = localStorage.getItem("followersList")
+      ? JSON.parse(localStorage.getItem("followersList"))
+      : [];
+
+    switch (type) {
+      case "follow":
+        return users.filter((user) => !followed.includes(user.id));
+      case "followings":
+        return users.filter((user) => followed.includes(user.id));
+      default:
+        return users;
+    }
+  }, [type, users]);
 
   useEffect(() => {
-    fetchUsers(page).then((results) =>
+    setIsShowButton(false);
+    setIsLoading(true);
+
+    fetchUsers(page).then((result) =>
       setUsers((prevUsers) => {
-        return prevUsers.concat(results);
+        setIsLoading(false);
+
+        if (result.data.length > 0) {
+          setIsShowButton(true);
+        }
+
+        setIsShowButton(result.hits);
+
+        return prevUsers.concat(result.data);
       })
     );
   }, [page]);
@@ -21,20 +59,28 @@ const UserList = () => {
   const handleLoadMoreClick = () => {
     setPage((page) => page + 1);
   };
-  console.log(page);
+
   return (
     <Container>
-      <Link to="/">
-        <BackButton>Back</BackButton>
-      </Link>
+      <TopButtonsContainer>
+        <Link to="/">
+          <BackButton>Back</BackButton>
+        </Link>
+        <Dropdown setType={setType} type={type} />
+      </TopButtonsContainer>
       <List>
-        {users.map((user) => (
+        {filteredUsers.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
       </List>
-      <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
-        Load more
-      </LoadMoreButton>
+      {isLoading && <Loader />}
+      {isShowButton && filteredUsers.length > 0 && (
+        <LoadMoreContainer>
+          <LoadMoreButton type="button" onClick={handleLoadMoreClick}>
+            Load more
+          </LoadMoreButton>
+        </LoadMoreContainer>
+      )}
     </Container>
   );
 };

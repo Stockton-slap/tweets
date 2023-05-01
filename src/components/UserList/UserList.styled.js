@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../../utils/reusableStyles";
+import { Button, ButtonWrapper } from "../../utils/reusableStyles";
 
 export const Container = styled.div`
   padding: 100px;
@@ -12,6 +12,12 @@ export const List = styled.ul`
   gap: 20px;
   justify-items: center;
   align-items: center;
+`;
+
+export const LoadMoreContainer = styled(ButtonWrapper)``;
+
+export const TopButtonsContainer = styled(ButtonWrapper)`
+  justify-content: space-around;
 `;
 
 export const BackButton = styled(Button)`
