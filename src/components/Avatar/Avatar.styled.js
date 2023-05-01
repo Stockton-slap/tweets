@@ -24,7 +24,4 @@ export const CircleWrapper = styled.div`
 
   border-width: 8px;
   border-style: solid;
-  border-color: #ebd8ff;
-
-  box-shadow: inset 0px 3.44px 2.58px #fbf8ff, 0px 3.44px 3.44px #0000000f;
 `;
