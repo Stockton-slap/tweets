@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+import PropTypes from "prop-types";
+
 import {
   InfoContainer,
   Tweets,
@@ -45,6 +48,12 @@ const UserStatsInfo = ({ tweets, followers, id }) => {
       </InfoContainer>
     </>
   );
+};
+
+UserStatsInfo.propTypes = {
+  tweets: PropTypes.number.isRequired,
+  followers: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default UserStatsInfo;

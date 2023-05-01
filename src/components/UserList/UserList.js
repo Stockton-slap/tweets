@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
 import UserItem from "../UserItem";
 import Loader from "../Loader";
+import Dropdown from "../Dropdown";
 
 import {
   BackButton,
@@ -11,9 +13,8 @@ import {
   LoadMoreContainer,
   TopButtonsContainer,
 } from "./UserList.styled";
+
 import { fetchUsers } from "../../services/fetchUsers";
-import { Link } from "react-router-dom";
-import Dropdown from "../Dropdown/Dropdown";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);

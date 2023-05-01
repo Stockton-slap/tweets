@@ -1,3 +1,8 @@
+import PropTypes from "prop-types";
+
+import Avatar from "../Avatar";
+import UserStatsInfo from "../UserStatsInfo";
+
 import {
   Card,
   LogoWrapper,
@@ -6,11 +11,9 @@ import {
 } from "./UserItem.styled";
 
 import { ReactComponent as Logo } from "../../images/logo.svg";
-import Avatar from "../Avatar/Avatar";
-import UserStatsInfo from "../UserStatsInfo/UserStatsInfo";
 
-const UserItem = (props) => {
-  const { user: name, tweets, followers, avatar, id } = props.user;
+const UserItem = ({ user }) => {
+  const { tweets, followers, avatar, id } = user;
 
   return (
     <Card>
@@ -20,10 +23,19 @@ const UserItem = (props) => {
       <BackgroundImage />
 
       <Rectangle />
-      <Avatar name={name} avatar={avatar} />
+      <Avatar avatar={avatar} />
       <UserStatsInfo tweets={tweets} followers={followers} id={id} />
     </Card>
   );
+};
+
+UserItem.propTypes = {
+  user: PropTypes.shape({
+    tweets: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
+    avatar: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
 };
 
 export default UserItem;

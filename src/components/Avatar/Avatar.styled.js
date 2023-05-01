@@ -7,6 +7,7 @@ export const Circle = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url(${(props) => props.avatar});
+  background-color: #fff;
 `;
 
 export const CircleWrapper = styled.div`

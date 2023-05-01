@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import PropTypes from "prop-types";
 
 import {
   DropdownSelect,
@@ -7,11 +8,7 @@ import {
   SelectContainer,
 } from "./Dropdown.styled";
 
-const config = {
-  showAll: "Show all",
-  follow: "Follow",
-  followings: "Followings",
-};
+import { config } from "../../utils/config";
 
 const Dropdown = ({ setType, type }) => {
   const [open, setOpen] = useState(false);
@@ -69,6 +66,11 @@ const Dropdown = ({ setType, type }) => {
       </SelectCategories>
     </SelectContainer>
   );
+};
+
+Dropdown.propTypes = {
+  setType: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default Dropdown;
